@@ -9,6 +9,7 @@ const Home = () => {
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Bem-vindo, {user?.emailAddresses[0].emailAddress} 🎉</Text>
     </View>
+    //Aqui começa realmente a tela do aplicativo como foi feita no Figma por caio
   );
 };
 

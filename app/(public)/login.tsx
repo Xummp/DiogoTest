@@ -3,16 +3,16 @@ import { useOAuth } from '@clerk/clerk-expo';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { View, StyleSheet, TextInput, Text, TouchableOpacity } from 'react-native';
-
-// https://github.com/clerkinc/clerk-expo-starter/blob/main/components/OAuth.tsx
 import { useWarmUpBrowser } from '@/hooks/useWarmUpBrowser';
 import { defaultStyles } from '@/constants/Styles';
 import Animated from 'react-native-reanimated';
+
 
 enum Strategy {
   Google = 'oauth_google',
   Apple = 'oauth_apple'
 }
+
 const Page = () => {
   useWarmUpBrowser();
 
@@ -34,13 +34,17 @@ const Page = () => {
         router.back();
       }
     } catch (err) {
-      console.error('OAuth error', err);
+      console.error('Você parece já estar logado.', err);
     }
+  };
+
+  const handleRegisterPress = () => {
+    console.log('Abrindo sobreposição para registro...');
   };
 
   return (
     <View style={styles.container}>
-     <View style={styles.containerLogo}>
+      <View style={styles.containerLogo}>
         <Animated.Image
           style={{
             width: 300,
@@ -59,11 +63,12 @@ const Page = () => {
         placeholder="Senha"
         style={[defaultStyles.inputField, { marginBottom: 30 }]}
       />
-
+      <TouchableOpacity style={styles.registreButton} onPress={handleRegisterPress}>
+        <Text style={styles.registreButtonText}>Crie sua conta</Text>
+      </TouchableOpacity>
       <TouchableOpacity style={defaultStyles.btn}>
         <Text style={defaultStyles.btnText}>Continuar</Text>
       </TouchableOpacity>
-
       <View style={styles.seperatorView}>
         <View
           style={{
@@ -96,8 +101,6 @@ const Page = () => {
     </View>
   );
 };
-
-export default Page;
 
 const styles = StyleSheet.create({
   container: {
@@ -139,4 +142,15 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: 'mon-sb',
   },
+  registreButton: {
+    alignItems: 'center', 
+  },
+  registreButtonText: {
+    fontFamily: 'mon-sb',
+    color: Colors.grey,
+    bottom: 15,
+
+  }
 });
+
+export default Page;

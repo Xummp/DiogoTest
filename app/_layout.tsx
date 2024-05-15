@@ -35,12 +35,12 @@ const InitialLayout = () => {
 
     console.log('User changed: ', isSignedIn);
 
-    /*if (isSignedIn && !inTabsGroup) {
+    if (isSignedIn && !inTabsGroup) {
       router.replace('/home');
     } else if (!isSignedIn) {
       router.replace('/login');
-    }*/
-    router.replace('/login');
+    }
+    /*router.replace('/login');*/
   }, [isSignedIn]);
 
   return <Slot />;
