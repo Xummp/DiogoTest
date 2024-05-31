@@ -95,7 +95,7 @@ const Page = () => {
 
         <TouchableOpacity style={styles.btnOutline} onPress={() => onSelectAuth(Strategy.Google)}>
           <Ionicons name="md-logo-google" size={24} style={defaultStyles.btnIcon} />
-          <Text style={styles.btnOutlineText}>Continue with Google</Text>
+          <Text style={styles.btnOutlineText}>Continuar pelo Google</Text>
         </TouchableOpacity>
       </View>
     </View>
